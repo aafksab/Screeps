@@ -25,15 +25,15 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
-            roleHarvester.spawn();
+            roleHarvester.spawn(6);
         }
         if(creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
-            roleUpgrader.spawn();
+            roleUpgrader.spawn(2);
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
-            roleBuilder.spawn();
+            roleBuilder.spawn(10);
         }
     pixels.generatePixel()
     }

@@ -24,10 +24,10 @@ var roleUpgrader = {
             }
         }
 	},
-    spawn: function() {
+    spawn: function(scale) {
         var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-        //console.log('upgrader: ' + upgrader.length);
-        if(upgrader.length < 2) {
+        console.log('upgrader: ' + upgrader.length + ' Max:' + scale);
+        if(upgrader.length < scale) {
             var newName = 'upgrader' + Game.time;
             //console.log('Spawning new upgrader: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,MOVE,MOVE], newName, 

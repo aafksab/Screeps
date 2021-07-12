@@ -28,10 +28,10 @@ var roleBuilder = {
             }
         }
     },
-    spawn: function() {
+    spawn: function(scale) {
         var builder = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-        //console.log('builder: ' + builder.length);
-        if(builder.length < 10) {
+        console.log('builder: ' + builder.length + ' Max:' + scale);
+        if(builder.length < scale) {
             var newName = 'builder' + Game.time;
             //console.log('Spawning new builder: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 

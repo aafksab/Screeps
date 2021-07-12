@@ -22,10 +22,10 @@ var roleHarvester = {
             }
         }
 	},
-    spawn: function() {
+    spawn: function(scale) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-        //console.log('Harvesters: ' + harvesters.length);
-        if(harvesters.length < 6) {
+        console.log('Harvesters: ' + harvesters.length + ' Max:' + scale);
+        if(harvesters.length < scale) {
             var newName = 'Harvester' + Game.time;
            //console.log('Spawning new harvester: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,MOVE,MOVE], newName, 
