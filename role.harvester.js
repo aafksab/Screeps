@@ -24,7 +24,7 @@ var roleHarvester = {
 	},
     spawn: function(scale) {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-        console.log('Harvesters: ' + harvesters.length + ' Max:' + scale);
+        console.log('Harvesters:' + harvesters.length + ' Max:' + scale);
         if(harvesters.length < scale) {
             var newName = 'Harvester' + Game.time;
            //console.log('Spawning new harvester: ' + newName);

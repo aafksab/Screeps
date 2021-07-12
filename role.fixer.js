@@ -29,12 +29,12 @@ var roleFixer = {
     },
     spawn: function(scale) {
         var builder = _.filter(Game.creeps, (creep) => creep.memory.role == 'fixer');
-        console.log('builder: ' + builder.length + ' Max:' + scale);
+        console.log('fixer:' + builder.length + ' Max:' + scale);
         if(builder.length < scale) {
-            var newName = 'builder' + Game.time;
-            //console.log('Spawning new builder: ' + newName);
+            var newName = 'fixer' + Game.time;
+            //console.log('Spawning new fixer: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
-                {memory: {role: 'builder'}});
+                {memory: {role: 'fixer'}});
         }
     }
 };

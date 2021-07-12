@@ -26,7 +26,7 @@ var roleUpgrader = {
 	},
     spawn: function(scale) {
         var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-        console.log('upgrader: ' + upgrader.length + ' Max:' + scale);
+        console.log('upgrader:' + upgrader.length + ' Max:' + scale);
         if(upgrader.length < scale) {
             var newName = 'upgrader' + Game.time;
             //console.log('Spawning new upgrader: ' + newName);
