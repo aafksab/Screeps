@@ -4,6 +4,13 @@ var roleBuilder = require('role.builder');
 var pixels = require("pixel");
 
 module.exports.loop = function () {
+    roleHarvester.spawn(4);
+    roleUpgrader.spawn(2);
+    roleBuilder.spawn(10);
+    console.log(' ')
+    
+    pixels.generatePixel()
+    //pixels.tradePixels()
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
@@ -25,16 +32,13 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
-            roleHarvester.spawn(6);
         }
         if(creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
-            roleUpgrader.spawn(2);
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
-            roleBuilder.spawn(10);
         }
-    pixels.generatePixel()
     }
+
 }

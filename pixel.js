@@ -10,7 +10,7 @@ var pixels = {
     tradePixels: function() {
         const orders = Game.market
         .getAllOrders({
-            type: ORDER_SELL,
+            type: ORDER_BUY,
             resourceType: PIXEL,
         })
         .sort((a, b) => a.price - b.price);
