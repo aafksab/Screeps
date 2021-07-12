@@ -1,8 +1,8 @@
 var pixels = {
 
     generatePixel: function() {
-        console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
         if (Game.cpu.bucket >= PIXEL_CPU_COST) {
+            console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
             Game.cpu.generatePixel();
         }       
     },
