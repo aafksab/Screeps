@@ -1,12 +1,8 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
-
-function gen_pixel() {
-	if (Game.cpu.bucket >= PIXEL_CPU_COST) {
-		Game.cpu.generatePixel();
-	}
-}
+const pixels = require('./pixels');
+require("pixels")
 
 module.exports.loop = function () {
 
@@ -40,6 +36,7 @@ module.exports.loop = function () {
             roleBuilder.run(creep);
             roleBuilder.spawn();
         }
-    gen_pixel();
+    pixels.generatePixel
+    pixels.tradePixels
     }
 }
