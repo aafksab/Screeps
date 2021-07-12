@@ -23,7 +23,17 @@ var roleUpgrader = {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
-	}
+	},
+    spawn: function() {
+        var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+        //console.log('upgrader: ' + upgrader.length);
+        if(upgrader.length < 2) {
+            var newName = 'upgrader' + Game.time;
+            //console.log('Spawning new upgrader: ' + newName);
+            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,MOVE,MOVE], newName, 
+                {memory: {role: 'upgrader'}});
+        }
+    }
 };
 
 module.exports = roleUpgrader;
