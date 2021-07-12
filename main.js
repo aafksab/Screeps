@@ -1,8 +1,7 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
-const pixels = require('./pixels');
-require("pixels")
+var pixels = require("pixel");
 
 module.exports.loop = function () {
 
@@ -36,7 +35,6 @@ module.exports.loop = function () {
             roleBuilder.run(creep);
             roleBuilder.spawn();
         }
-    pixels.generatePixel
-    pixels.tradePixels
+    pixels.generatePixel()
     }
 }
