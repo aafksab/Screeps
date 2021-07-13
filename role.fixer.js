@@ -12,11 +12,11 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) { 
             var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (s) => s.hits < s.hitsMax && s.hits < 5000
+                filter: (s) => s.hits < s.hitsMax && s.hits < 3500
             });
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(structure);
+                    creep.moveTo(structure, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
             else {
@@ -37,7 +37,7 @@ var roleFixer = {
         if(fixer.length < scale) {
             var newName = 'fixer' + Game.time;
             //console.log('Spawning new fixer: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'fixer'}});
         }
     }

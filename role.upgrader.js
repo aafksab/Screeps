@@ -30,7 +30,7 @@ var roleUpgrader = {
         if(upgrader.length < scale) {
             var newName = 'upgrader' + Game.time;
             //console.log('Spawning new upgrader: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'upgrader'}});
         }
     }

@@ -22,11 +22,11 @@ var roleFighter = {
         var hostile = Game.rooms['E42S44'].find(FIND_HOSTILE_STRUCTURES);
         var Fighter = _.filter(Game.creeps, (creep) => creep.memory.role == 'Fighter');
         console.log('Fighter:' + Fighter.length + ' Max:' + scale); 
-        if (target != undefined || hostile != undefined) {
+        if (target.length > 0 || hostile.length > 0) {
             console.log('Invader Found!')
             var newName = 'fighter' + Game.time;
             //console.log('Spawning new Fighter: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([TOUGH,MOVE,MOVE,MOVE,ATTACK,ATTACK], newName, 
+            Game.spawns['Spawn1'].spawnCreep([TOUGH,RANGED_ATTACK,MOVE,MOVE,MOVE,WORK,ATTACK], newName, 
                 {memory: {role: 'fighter'}});
         }
     }
