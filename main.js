@@ -1,14 +1,17 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var roleFixer = require('role.fixer');
 var pixels = require("pixel");
 
 module.exports.loop = function () {
     roleHarvester.spawn(4);
     roleUpgrader.spawn(2);
-    roleBuilder.spawn(10);
+    roleBuilder.spawn(4);
+    roleFixer.spawn(4);
     console.log(' ')
-    
+    console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
+    console.log(' ')
     pixels.generatePixel()
     //pixels.tradePixels()
 
@@ -38,6 +41,9 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
+        }
+        if(creep.memory.role == 'fixer') {
+            roleFixer.run(creep);
         }
     }
 
