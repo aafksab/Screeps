@@ -18,11 +18,12 @@ var roleFighter = {
         }
     },
     spawn: function (scale) {
-        const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        const hostile = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
+        var target = Game.rooms['E42S44'].find(FIND_HOSTILE_CREEPS);
+        var hostile = Game.rooms['E42S44'].find(FIND_HOSTILE_STRUCTURES);
         var Fighter = _.filter(Game.creeps, (creep) => creep.memory.role == 'Fighter');
-        console.log('Fighter:' + Fighter.length + ' Max:' + scale);
-        if (target != undefined || hostile != undefined) { 
+        console.log('Fighter:' + Fighter.length + ' Max:' + scale); 
+        if (target != undefined || hostile != undefined) {
+            console.log('Invader Found!')
             var newName = 'fighter' + Game.time;
             //console.log('Spawning new Fighter: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([TOUGH,MOVE,MOVE,MOVE,ATTACK,ATTACK], newName, 
