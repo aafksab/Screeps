@@ -11,7 +11,7 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) { 
             var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (s) => s.hits < s.hitsMax && s.hits < 1000
+                filter: (s) => s.hits < s.hitsMax && s.hits < 3000
             });
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
@@ -19,8 +19,8 @@ var roleFixer = {
                 }
             }
             else {
-                creep.say('now builder');
-                creep.memory.role = 'builder';
+                creep.say('now upgrader');
+                creep.memory.role = 'upgrader';
             }
         }
         else  {
