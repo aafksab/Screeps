@@ -4,6 +4,7 @@ var roleFixer = {
     run: function(creep) {
         if (creep.memory.repairing == true && creep.carry.energy == 0) {
             creep.memory.repairing = false;
+            creep.say('🔄 harvest');
         }
         else if (!creep.memory.repairing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.repairing = true;
@@ -11,7 +12,7 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) { 
             var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (s) => s.hits < s.hitsMax && s.hits < 3000
+                filter: (s) => s.hits < s.hitsMax && s.hits < 5000
             });
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
@@ -24,9 +25,9 @@ var roleFixer = {
             }
         }
         else  {
-            var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source);
+            var sources = creep.room.find(FIND_SOURCES);
+            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     },
