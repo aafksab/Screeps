@@ -1,5 +1,3 @@
-var roleBuilder = require('role.builder');
-
 var roleFixer = {
 
     /** @param {Creep} creep **/
@@ -21,11 +19,11 @@ var roleFixer = {
                 }
             }
             else {
-                creep.say('now fixer');
-                roleBuilder.run(creep);
+                creep.say('now builder');
+                creep.memory.role = 'builder';
             }
         }
-        else {
+        else  {
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
