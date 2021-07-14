@@ -28,7 +28,7 @@ var roleHarvester = {
         if(harvesters.length < scale) {
             var newName = 'Harvester' + Game.time;
            //console.log('Spawning new harvester: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'harvester'}});
         }
     }

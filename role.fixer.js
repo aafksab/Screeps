@@ -12,7 +12,7 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) { 
             var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (s) => s.hits < s.hitsMax && s.hits < 3500
+                filter: (s) => s.hits < s.hitsMax && s.hits < 10000
             });
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
@@ -20,14 +20,14 @@ var roleFixer = {
                 }
             }
             else {
-                creep.say('now upgrader');
-                creep.memory.role = 'upgrader';
+                creep.say('now builder');
+                creep.memory.role = 'builder';
             }
         }
         else  {
             var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     },
@@ -37,7 +37,7 @@ var roleFixer = {
         if(fixer.length < scale) {
             var newName = 'fixer' + Game.time;
             //console.log('Spawning new fixer: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'fixer'}});
         }
     }
