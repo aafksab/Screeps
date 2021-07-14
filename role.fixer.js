@@ -12,8 +12,8 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) {
             var structure = creep.room.find( FIND_STRUCTURES, { filter: ( f ) => {
-                return ( f.hits < f.hitsMax )}}).sort( function( a, b ) {
-                     return +a.hits - +b.hits })[ 0 ]
+                return ( f.hits < f.hitsMax /* && f.structureType == STRUCTURE_WALL */ && f.hits < 35000)}}).sort( function( a, b ) {
+                     return +a.hits - +b.hits })[0]
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(structure, {visualizePathStyle: {stroke: '#ffffff'}});
@@ -31,7 +31,7 @@ var roleFixer = {
             }
         }
     },
-    spawn: function(scale) {
+    spawn: function(scale, structure) {
         var fixer = _.filter(Game.creeps, (creep) => creep.memory.role == 'fixer');
         console.log('fixer:' + fixer.length + ' Max:' + scale);
         if(fixer.length < scale) {
