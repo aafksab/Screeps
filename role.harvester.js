@@ -12,7 +12,7 @@ var roleHarvester = {
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
-                        structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
+                        structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0; 
                 }
             });
             if(targets.length > 0) {
@@ -28,7 +28,7 @@ var roleHarvester = {
         if(harvesters.length < scale) {
             var newName = 'Harvester' + Game.time;
            //console.log('Spawning new harvester: ' + newName);
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'harvester'}});
         }
     }
