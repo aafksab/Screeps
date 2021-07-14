@@ -11,8 +11,13 @@ var roleFixer = {
             creep.say('⚡ repair');
         }
         if (creep.memory.repairing == true) { 
-            var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            var struct = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                 filter: (s) => s.hits < s.hitsMax && s.hits < 35000
+            },
+            {
+                sortBy: function(a,b) {
+                    return a.hits[1] - b.hits[1]
+                }
             });
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
