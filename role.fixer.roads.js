@@ -30,7 +30,7 @@ var roleFixerRoads = {
             }
         }
     },
-    spawn: function(scale, structure) {
+    spawn: function(scale) {
         var fixerRoads = _.filter(Game.creeps, (creep) => creep.memory.role == 'fixerRoads');
         console.log('fixerRoads:' + fixerRoads.length + ' Max:' + scale);
         if(fixerRoads.length < scale) {
