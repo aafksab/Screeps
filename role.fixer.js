@@ -10,15 +10,10 @@ var roleFixer = {
             creep.memory.repairing = true;
             creep.say('⚡ repair');
         }
-        if (creep.memory.repairing == true) { 
-            var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-                filter: (s) => s.hits < s.hitsMax && s.hits < 35000
-            },
-            {
-                sortBy: function(a,b) {
-                    return a.hits[1] - b.hits[1]
-                }
-            });
+        if (creep.memory.repairing == true) {
+            var structure = creep.room.find( FIND_STRUCTURES, { filter: ( f ) => {
+                return ( f.hits < f.hitsMax )}}).sort( function( a, b ) {
+                     return +a.hits - +b.hits })[ 0 ]
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(structure, {visualizePathStyle: {stroke: '#ffffff'}});
