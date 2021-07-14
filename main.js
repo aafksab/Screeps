@@ -2,6 +2,7 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleFixer = require('role.fixer');
+var roleFixerRoads = require('role.fixer.roads');
 var roleFighter = require('role.fighter');
 var pixels = require("pixel");
 
@@ -9,7 +10,8 @@ module.exports.loop = function () {
     roleHarvester.spawn(2);
     roleUpgrader.spawn(2);
     roleBuilder.spawn(4);
-    roleFixer.spawn(4);
+    roleFixer.spawn(3);
+    roleFixerRoads.spawn(1);
     //roleFighter.spawn(0);
     console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
     console.log(' ')
@@ -45,6 +47,9 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'fixer') {
             roleFixer.run(creep);
+        }
+        if(creep.memory.role == 'fixerRoads') {
+            roleFixerRoads.run(creep);
         }
         if(creep.memory.role == 'fighter') {
             roleFighter.run(creep);
