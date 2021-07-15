@@ -1,13 +1,13 @@
-var roleHarvester = require('role.harvester');
-var roleHarvesterBig = require('role.harvester.big');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
-var roleFixer = require('role.fixer');
-var roleFixerRoads = require('role.fixer.roads');
-var roleFighter = require('role.fighter');
-var roleFixerC = require('role.fixer.container');
-var roleXfer = require('role.xfer');
-var pixels = require("pixel");
+var roleHarvester = require('../roles/role.harvester');
+var roleHarvesterBig = require('../roles/role.harvester.big');
+var roleUpgrader = require('../roles/role.upgrader');
+var roleBuilder = require('../roles/role.builder');
+var roleFixer = require('../roles/role.fixer');
+var roleFixerRoads = require('../roles/role.fixer.roads');
+var roleFighter = require('../roles/role.fighter');
+var roleFixerC = require('../roles/role.fixer.container');
+var roleXfer = require('../roles/role.xfer');
+var pixels = require('../utility/pixel');
 
 module.exports.loop = function () {
     roleHarvester.spawn(2);
