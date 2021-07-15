@@ -3,7 +3,12 @@ var xfer = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	    if(creep.store.getFreeCapacity() > 0) {
-            var sources = creep.room.find(FIND_CONTAINERS);
+            var sources = creep.room.find(FIND_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_CONTAINER ) &&
+                        structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
+                }
+            });
             if(creep.transfer(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
@@ -25,7 +30,7 @@ var xfer = {
     spawn: function(scale) {
         var xfer = _.filter(Game.creeps, (creep) => creep.memory.role == 'xfer');
         console.log('xfer:' + xfer.length + ' Max:' + scale);
-        if(harvesters.length < scale) {
+        if(xfer.length < scale) {
             var newName = 'xfer' + Game.time;
            //console.log('Spawning new harvester: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 

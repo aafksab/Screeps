@@ -20,26 +20,13 @@ var roleHarvesterBig = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
-            else {
-                var targets = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER ) &&
-                            structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
-                    }
-                });
-                if(targets.length > 0) {
-                    if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
-                    }
-                }
-            }
         }
 	},
     spawn: function(scale) {
-        var harvestersBig = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterBig');
-        console.log('harvestersBig:' + harvestersBig.length + ' Max:' + scale);
-        if(harvestersBig.length < scale) {
-            var newName = 'harvestersBig' + Game.time;
+        var harvesterBig = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterBig');
+        console.log('harvestersBig:' + harvesterBig.length + ' Max:' + scale);
+        if(harvesterBig.length < scale) {
+            var newName = 'harvesterBig' + Game.time;
            //console.log('Spawning new harvester: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'harvesterBig'}});

@@ -11,7 +11,7 @@ var pixels = require("pixel");
 module.exports.loop = function () {
     roleHarvester.spawn(2);
     roleHarvesterBig.spawn(2);
-    roleUpgrader.spawn(7);
+    roleUpgrader.spawn(6);
     roleBuilder.spawn(0);
     roleFixer.spawn(1);
     roleFixerRoads.spawn(1);
