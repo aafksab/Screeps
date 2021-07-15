@@ -31,10 +31,10 @@ var roleBuilder = {
                         creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
-                else {
+                /*else {
                     creep.say('now fixer');
                     creep.memory.role = 'fixer';
-                }
+                }*/
             }
         }
         else {
