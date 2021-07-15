@@ -12,7 +12,7 @@ var roleFixer = {
         }
         if (creep.memory.repairing == true) {
             var structure = creep.room.find( FIND_STRUCTURES, { filter: ( f ) => {
-                return ( f.hits < f.hitsMax && f.structureType == STRUCTURE_WALL && f.hits < 40000)}}).sort( function( a, b ) {
+                return ( f.hits < f.hitsMax && f.structureType == STRUCTURE_WALL && f.hits < 60000)}}).sort( function( a, b ) {
                      return +a.hits - +b.hits })[0]
             if (structure != undefined) {
                 if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
