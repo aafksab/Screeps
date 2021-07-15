@@ -12,7 +12,7 @@ var roleFixerRoads = {
         }
         if (creep.memory.repairing == true) {
             var structure = creep.room.find(FIND_STRUCTURES, { filter: ( f ) => {
-                return (f.hits < f.hitsMax)}})
+                return (f.hits < f.hitsMax && f.structureType == STRUCTURE_ROAD)}})
             if (structure != undefined) {
                 if (creep.repair(structure[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(structure[0], {visualizePathStyle: {stroke: '#ffffff'}});
