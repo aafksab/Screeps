@@ -5,6 +5,7 @@ var roleBuilder = require('role.builder');
 var roleFixer = require('role.fixer');
 var roleFixerRoads = require('role.fixer.roads');
 var roleFighter = require('role.fighter');
+var roleXfer = require('role.xfer');
 var pixels = require("pixel");
 
 module.exports.loop = function () {
@@ -15,6 +16,7 @@ module.exports.loop = function () {
     roleFixer.spawn(1);
     roleFixerRoads.spawn(1);
     //roleFighter.spawn(0);
+    roleXfer.spawn(1);
     console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
     console.log(' ')
     pixels.generatePixel()
@@ -58,6 +60,9 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'fighter') {
             roleFighter.run(creep);
+        }
+        if(creep.memory.role == 'xfer') {
+            roleXfer.run(creep);
         }
     }
 }
