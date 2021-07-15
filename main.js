@@ -14,9 +14,9 @@ module.exports.loop = function () {
     roleUpgrader.spawn(6);
     roleBuilder.spawn(0);
     roleFixer.spawn(1);
-    roleFixerRoads.spawn(1);
+    roleFixerRoads.spawn(2);
     //roleFighter.spawn(0);
-    roleXfer.spawn(1);
+    roleXfer.spawn(0);
     console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)
     console.log(' ')
     pixels.generatePixel()
