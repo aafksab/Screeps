@@ -9,8 +9,8 @@ var pixels = require("pixel");
 module.exports.loop = function () {
     roleHarvester.spawn(2);
     roleUpgrader.spawn(2);
-    roleBuilder.spawn(4);
-    roleFixer.spawn(3);
+    roleBuilder.spawn(0);
+    roleFixer.spawn(1);
     roleFixerRoads.spawn(1);
     //roleFighter.spawn(0);
     console.log('PixelBucket: ' + Game.cpu.bucket+ ' PixelCost:' + PIXEL_CPU_COST)

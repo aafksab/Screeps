@@ -19,10 +19,10 @@ var roleFixer = {
                     creep.moveTo(structure, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
-            else {
+            /*else {
                 creep.say('now builder');
-                creep.memory.role = 'builder';
-            }
+                //creep.memory.role = 'builder';
+            }*/
         }
         else  {
             var sources = creep.room.find(FIND_SOURCES);

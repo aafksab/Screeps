@@ -18,10 +18,10 @@ var roleFixerRoads = {
                     creep.moveTo(structure, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
-            else {
+            /*else {
                 creep.say('now builder');
                 creep.memory.role = 'builder';
-            }
+            }*/
         }
         else  {
             var sources = creep.room.find(FIND_SOURCES);
@@ -30,7 +30,7 @@ var roleFixerRoads = {
             }
         }
     },
-    spawn: function(scale) {
+    spawn: function(scale, structure) {
         var fixerRoads = _.filter(Game.creeps, (creep) => creep.memory.role == 'fixerRoads');
         console.log('fixerRoads:' + fixerRoads.length + ' Max:' + scale);
         if(fixerRoads.length < scale) {
