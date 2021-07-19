@@ -20,7 +20,9 @@ var roleTurret = {
             creep.attack(target);
             return;
         }
-        var target = creep.pos.findClosestByRange(FIND_MY_CREEPS);
+        var target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+            filter: (structure) => structure.hits < structure.hitsMax,
+        }).sort((a, b) => a.hits - b.hits);
         if (target) {
             creep.heal(target);
             return;
