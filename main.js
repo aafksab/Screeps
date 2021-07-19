@@ -11,18 +11,32 @@ var pixels = require('pixel');
 
 module.exports.loop = function() {
     roleHarvester.spawn(2);
-    roleHarvesterBig.spawn(2);
-    roleUpgrader.spawn(8);
+    roleHarvesterBig.spawn(3);
+    roleUpgrader.spawn(4);
     roleBuilder.spawn(0);
-    roleFixer.spawn(2);
+    roleFixer.spawn(0);
     roleFixerC.spawn(1);
-    roleFixerRoads.spawn(1);
+    roleFixerRoads.spawn(2);
     //roleFighter.spawn(0);
-    roleXfer.spawn(0);
+    roleXfer.spawn(2);
     console.log('PixelBucket: ' + Game.cpu.bucket + ' PixelCost:' + PIXEL_CPU_COST)
     console.log(' ')
     pixels.generatePixel()
         //pixels.tradePixels()
+     var tower = Game.getObjectById('60f1af8717defdd5b3d03f3b');
+    if(tower) {
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => structure.hits < structure.hitsMax
+        });
+        if(closestDamagedStructure) {
+            tower.repair(closestDamagedStructure);
+        }
+
+        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(closestHostile) {
+            tower.attack(closestHostile);
+        }
+    }
 
     for (var name in Memory.creeps) {
         if (!Game.creeps[name]) {
